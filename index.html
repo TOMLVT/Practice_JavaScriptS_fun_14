@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Slider - Tom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <style>
+        .slider, .control-buttons {
+            margin: 0 auto;
+            width: 80%;
+        }
+        .slider .slick-slide {
+            height: 300px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+        .control-buttons {
+            position: relative;
+            margin-top: 20px;
+        }
+        .control-buttons button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #prev {
+            left: -50px;
+        }
+        #next {
+            right: -50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider additional-slider" data-slick='{"slidesToShow": 4, "slidesToScroll": 1}'> 
+    <div><h5>Sản phẩm 1</h5></div>
+    <div><h5>Sản phẩm 2</h5></div>
+    <div><h5>Sản phẩm 3</h5></div>
+    <div><h5>Sản phẩm 4</h5></div>
+    <div><h5>Sản phẩm 5</h5></div>
+    <div><h5>Sản phẩm 6</h5></div>
+</div>
+
+<div class="control-buttons">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.additional-slider').slick();
+
+        $('#prev').on('click', function(){
+            $('.additional-slider').slick('slickPrev');
+        });
+        $('#next').on('click', function(){
+            $('.additional-slider').slick('slickNext');
+        });
+
+        setInterval(function(){
+            $('.additional-slider').slick('slickNext');
+        }, 2000);
+    });
+</script>
+
+</body>
+</html>
